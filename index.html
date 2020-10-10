@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox Grid</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/helpers.css" />
+    <link rel="stylesheet" href="css/grid.css" />
+
+    <style>
+      body {
+        font-family: "Nunito", Helvetica, Arial, sans-serif;
+        color: #252525;
+        background: #eef1f4;
+      }
+
+      .demo-box {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 20px 15px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        box-shadow: 0 20px 30px -16px rgba(9, 9, 16, 0.2);
+      }
+
+      .bg-exemplo {
+        background: #dee2e6;
+      }
+
+      .titulo-1 {
+        font-size: 3em;
+        font-weight: bold;
+        margin-bottom: 60px;
+      }
+
+      .titulo-1::after {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 60px;
+        background: #4099de;
+        margin: 5px 0;
+      }
+
+      .titulo-2 {
+        font-size: 2.25em;
+        margin-bottom: 40px;
+      }
+
+      .titulo-2::after {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 60px;
+        background: #4099de;
+        margin: 10px 0;
+      }
+
+      .titulo-3 {
+        font-size: 1.5em;
+        margin-bottom: 40px;
+      }
+
+      .titulo-3::before {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 30px;
+        margin-right: 10px;
+        background: #4b667a;
+        vertical-align: middle;
+      }
+
+      .titulo-4 {
+        font-size: 1em;
+        margin-bottom: 20px;
+      }
+
+      .titulo-4::before {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 15px;
+        margin-right: 10px;
+        background: #4b667a;
+        vertical-align: middle;
+      }
+
+      .conteudo {
+        padding: 40px 0;
+      }
+
+      .lista {
+        padding: 5px 20px;
+      }
+
+      .lista li {
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+      }
+
+      .lista li::before {
+        content: "";
+        height: 5px;
+        width: 5px;
+        background: #4099de;
+        border-radius: 50%;
+        margin: 0 10px 0 0;
+      }
+
+      .descricao {
+        padding: 1.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .descricao p {
+        margin: 10px 0;
+      }
+
+      .descricao-corpo {
+        margin-right: 0;
+        margin-left: 0;
+        border-width: 0.2rem;
+        background: #f7f7f9;
+      }
+
+      .doc-item {
+        padding: 30px 0;
+        border-top: 3px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .intro p {
+        max-width: 460px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px 0;
+        border-top: 2px solid #4099de;
+        border-bottom: 2px solid #4099de;
+      }
+
+      .intro p::before {
+        content: "“";
+        display: inline;
+      }
+
+      .intro p::after {
+        content: "”";
+        display: inline;
+      }
+
+      .grid p {
+        margin-bottom: 40px;
+      }
+
+      .box {
+        background: #4099de;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        margin: 10px 0;
+        font-weight: bold;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-box">
+      <section class="intro">
+        <div class="container-fluid">
+          <div class="conteudo">
+            <h1 class="titulo-1">Flexbox Grid</h1>
+            <p>
+              Cansado de utilizar o bootstrap somente pelo sistema de GRID,
+              desenvolvi um sistema de grid que faz uso do flexbox, tendo suas
+              classes totalmente inspiradas pelo bootstrap 4.*
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid-demo">
+        <div class="container-fluid">
+          <div class="conteudo">
+            <h2 class="titulo-2">Demonstração do sistema de Grid</h2>
+            <p>
+              Uma pequena demonstração do funcionamento do grid em diferentes
+              breakpoints
+            </p>
+          </div>
+
+          <div class="conteudo">
+            <div class="doc-item">
+              <h3 class="titulo-3">Sem breakpoint</h3>
+              <div class="descricao">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="box">.col-6</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="box">.col-6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="conteudo">
+            <div class="doc-item">
+              <h3 class="titulo-3">SM >= 576px</h3>
+              <div class="descricao">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="box">.col-sm</div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="box">.col-sm</div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="box">.col-sm</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="box">.col-sm-3</div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="box">.col-sm-3</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="box">.col-sm-6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="conteudo">
+            <div class="doc-item">
+              <h3 class="titulo-3">MD >= 768px</h3>
+              <div class="descricao">
+                <div class="row">
+                  <div class="col-md">
+                    <div class="box">.col-md</div>
+                  </div>
+                  <div class="col-md">
+                    <div class="box">.col-md</div>
+                  </div>
+                  <div class="col-md">
+                    <div class="box">.col-md</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="box">.col-md-3</div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="box">.col-md-3</div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="box">.col-md-6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="conteudo">
+            <div class="doc-item">
+              <h3 class="titulo-3">LG >= 992px</h3>
+              <div class="descricao">
+                <div class="row">
+                  <div class="col-lg">
+                    <div class="box">.col-lg</div>
+                  </div>
+                  <div class="col-lg">
+                    <div class="box">.col-lg</div>
+                  </div>
+                  <div class="col-lg">
+                    <div class="box">.col-lg</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <div class="box">.col-lg-3</div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="box">.col-lg-3</div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="box">.col-lg-6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="conteudo">
+            <div class="doc-item">
+              <h3 class="titulo-3">XL >= 1200px</h3>
+              <div class="descricao">
+                <div class="row">
+                  <div class="col-xl">
+                    <div class="box">.col-xl</div>
+                  </div>
+                  <div class="col-xl">
+                    <div class="box">.col-xl</div>
+                  </div>
+                  <div class="col-xl">
+                    <div class="box">.col-xl</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-3">
+                    <div class="box">.col-xl-3</div>
+                  </div>
+                  <div class="col-xl-3">
+                    <div class="box">.col-xl-3</div>
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="box">.col-xl-6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="classes-auxiliares">
+        <div class="container-fluid">
+          <div class="conteudo">
+            <h1 class="titulo-1">Classes Auxiliares</h1>
+            <p>
+              Auxiliares que permitem manipular as propriedades flexbox com
+              facilidade
+            </p>
+          </div>
+
+          <div class="conteudo">
+            <div class="doc-item">
+              <div class="conteudo">
+                <h1 class="titulo-2">Flex Direction</h1>
+                <p>
+                  Auxiliar que visa manipular o
+                  <strong>flex-direction</strong> de um
+                  <strong>flex-container</strong>, como por exemplo a
+                  <strong>.row</strong>
+                </p>
+              </div>
+
+              <div class="conteudo">
+                <h3 class="titulo-3">Classes disponíveis</h3>
+                <ul class="lista">
+                  <li>flex-row</li>
+                  <li>flex-column</li>
+                  <li>flex-row-reverse</li>
+                  <li>flex-column-reverse</li>
+                  <li>flex-column-reverse</li>
+                  <li>flex-{sm,md,lg-xl}-row</li>
+                  <li>flex-{sm,md,lg-xl}-column</li>
+                </ul>
+              </div>
+
+              <div class="conteudo">
+                <h3 class="titulo-3">Demonstração</h3>
+                <div class="descricao">
+                  <h4 class="titulo-4">flex-lg-column</h4>
+                  <p>
+                    Tornar uma .row em flex-direction column em telas >=992px
+                  </p>
+                  <div class="row flex-lg-column">
+                    <div class="col-6"><div class="box">.col-6</div></div>
+                    <div class="col-6"><div class="box">.col-6</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="conteudo">
+            <div class="doc-item">
+              <div class="conteudo">
+                <h1 class="titulo-2">Justify Content</h1>
+                <p>
+                  Auxiliar que permite manipular a propriedade
+                  <strong>justify-content</strong> de um
+                  <strong>flex-container</strong>
+                </p>
+              </div>
+
+              <div class="conteudo">
+                <h3 class="titulo-3">Classes disponíveis</h3>
+                <ul class="lista">
+                  <li>justify-content-start</li>
+                  <li>justify-content-{sm,md,lg,xl}-start</li>
+                  <li>justify-content-end</li>
+                  <li>justify-content-{sm,md,lg,xl}-end</li>
+                  <li>justify-content-center</li>
+                  <li>justify-content-{sm,md,lg,xl}-center</li>
+                  <li>justify-content-between</li>
+                  <li>justify-content-{sm,md,lg,xl}-between</li>
+                  <li>justify-content-around</li>
+                  <li>justify-content-{sm,md,lg,xl}-around</li>
+                </ul>
+              </div>
+
+              <div class="conteudo">
+                <h3 class="titulo-3">Demonstração</h3>
+                <div class="descricao">
+                  <h4 class="titulo-4">justify-content-center</h4>
+                  <p>
+                    Centralizando as colunas com uso do justify-content-center
+                  </p>
+                  <div class="row justify-content-center">
+                    <div class="col-auto"><div class="box">.col-auto</div></div>
+                    <div class="col-auto"><div class="box">.col-auto</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="conteudo">
+            <div class="doc-item">
+              <div class="conteudo">
+                <h1 class="titulo-2">Align Items</h1>
+                <p>
+                  Auxiliar que permite manipular a propriedade
+                  <strong>align-items</strong> de um
+                  <strong>flex-container</strong>
+                </p>
+              </div>
+
+              <div class="conteudo">
+                <h3 class="titulo-3">Classes disponíveis</h3>
+                <ul class="lista">
+                  <li>align-items-start</li>
+                  <li>align-items-{sm,md,lg,xl}-start</li>
+                  <li>align-items-end</li>
+                  <li>align-items-{sm,md,lg,xl}-end</li>
+                  <li>align-items-center</li>
+                  <li>align-items-{sm,md,lg,xl}-center</li>
+                  <li>align-items-baseline</li>
+                  <li>align-items-{sm,md,lg,xl}-baseline</li>
+                  <li>align-items-stretch</li>
+                  <li>align-items-{sm,md,lg,xl}-stretch</li>
+                </ul>
+              </div>
+
+              <div class="conteudo">
+                <h3 class="titulo-3">Demonstração</h3>
+                <div class="descricao">
+                  <h4 class="titulo-4">align-items-center</h4>
+                  <p>Centralizando as colunas com uso do align-items-center</p>
+                  <div
+                    class="row align-items-center"
+                    style="height: 300px; border: 1px solid #252525"
+                  >
+                    <div class="col-auto"><div class="box">.col-auto</div></div>
+                    <div class="col-auto"><div class="box">.col-auto</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="conteudo">
+            <div class="doc-item">
+              <div class="conteudo">
+                <h1 class="titulo-2">Align Self</h1>
+                <p>
+                  Auxiliar que permite manipular a propriedade
+                  <strong>align-self</strong> de um <strong>flex-item</strong>
+                </p>
+              </div>
+
+              <div class="conteudo">
+                <h3 class="titulo-3">Classes disponíveis</h3>
+                <ul class="lista">
+                  <li>align-self-start</li>
+                  <li>align-self-{sm,md,lg,xl}-start</li>
+                  <li>align-self-end</li>
+                  <li>align-self-{sm,md,lg,xl}-end</li>
+                  <li>align-self-center</li>
+                  <li>align-self-{sm,md,lg,xl}-center</li>
+                  <li>align-self-baseline</li>
+                  <li>align-self-{sm,md,lg,xl}-baseline</li>
+                  <li>align-self-stretch</li>
+                  <li>align-self-{sm,md,lg,xl}-stretch</li>
+                </ul>
+              </div>
+
+              <div class="conteudo">
+                <h3 class="titulo-3">Demonstração</h3>
+                <div class="descricao">
+                  <h4 class="titulo-4">align-self-center</h4>
+                  <div
+                    class="row"
+                    style="height: 300px; border: 1px solid #252525"
+                  >
+                    <div class="col-auto align-self-start">
+                      <div class="box">.col-auto align-self-start</div>
+                    </div>
+                    <div class="col-auto align-self-center">
+                      <div class="box">.col-auto .align-self-center</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
